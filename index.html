@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Wedding Invitation - Ajay & Janvi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- INTRO PAGE DECK: gate reveal then formal invitation -->
+<div id="intro-stage" class="intro-stage">
+<!-- SECTION 1: CURTAIN REVEAL -->
+<section id="s-curtain" class="section" role="button" tabindex="0" aria-label="Tap to reveal wedding invitation">
+  <div class="curtain-bg" id="curtain-bg"></div>
+
+  <video class="curtain-video" id="curtain-video" muted playsinline webkit-playsinline preload="auto">
+    <source src="entry video.mp4" type="video/mp4">
+  </video>
+  <div class="petals-layer" id="petals-layer"></div>
+
+  <div class="curtains" id="curtains">
+    <div class="curtain-panel curtain-left"></div>
+    <div class="curtain-panel curtain-right"></div>
+  </div>
+
+ <div class="curtain-content">
+    <div class="name-box">
+      <div class="nb-sub animate-on-scroll">You are cordially invited to</div>
+      <div class="nb-names animate-on-scroll">
+        <span id="nb-bride"></span>
+        <span class="nb-amp">&</span>
+        <span id="nb-groom"></span>
+      </div>
+      <div class="nb-gold-line"></div>
+      <div class="nb-tagline animate-on-scroll" id="nb-tagline"></div>
+    </div>
+  </div>
+
+  <div class="tap-hint" id="tap-hint">
+    <span class="tap-hint-text animate-on-scroll"></span>
+  </div>
+</section>
+
+<!-- SECTION 2: FORMAL INVITATION CARD (appears after the gate/video reveal) -->
+<section id="s-invitation" class="section" aria-label="Formal wedding invitation">
+  <article class="invite-paper">
+    <div class="invite-om animate-on-scroll" aria-label="Om">ॐ</div>
+    <p class="invite-shloka animate-on-scroll">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव शुभकार्येषु सर्वदा॥</p>
+    <div class="invite-heading animate-on-scroll">We Cordially Invite You</div>
+    <p class="invite-copy animate-on-scroll">Together with our beloved families,<br>we request the honour of your gracious presence to celebrate the wedding of</p>
+    <div class="invite-name animate-on-scroll">Ajay</div>
+    <p class="invite-parents animate-on-scroll" id="invite-groom-parents">Add Groom’s Parents’ Names</p>
+    <div class="invite-with">With</div>
+    <div class="invite-name animate-on-scroll">Janvi</div>
+    <p class="invite-parents animate-on-scroll" id="invite-bride-parents">Add Bride’s Parents’ Names</p>
+    <div class="invite-ornament">❦</div>
+    <div class="invite-footer">Two hearts · One beautiful beginning</div><br>
+    <p class="arrow-icon">Please Scroll Down</p>
+
+
+  </article>
+</section>
+</div>
+
+<!-- SECTION 3: SCRATCH AND REVEAL -->
+<section id="s-scratch" class="section">
+  <div class="petal-top"></div>
+
+  <div style="padding-top:12px">
+    <span class="sec-eyebrow animate-on-scroll">Save the Date</span>
+    <div class="scratch-heading animate-on-scroll">Scratch & Reveal</div>
+    <div class="scratch-subheading animate-on-scroll">The Magic Awaits</div>
+    <p class="scratch-hint animate-on-scroll">Scratch all three cards to uncover your invitation details</p>
+
+    <div class="scratch-row" id="scratch-row"></div>
+
+    <div class="rose-divider"><span class="rose-divider-icon">🦚</span></div>
+
+    <a class="cal-btn animate-on-scroll" id="cal-btn" href="#" target="_blank" rel="noopener">
+      📅   Add to Calendar
+    </a>
+  </div>
+
+  <div class="petal-bottom"></div>
+</section>
+
+<!-- SECTION 3: COUNTDOWN -->
+<section id="s-countdown" class="section">
+  <div style="z-index:3">
+    <div class="petal-strip-img petal-strip-top"></div>
+    <span class="sec-eyebrow animate-on-scroll">Counting Down To</span>
+    <div class="cd-title animate-on-scroll">Our Special Day</div>
+    <div class="cd-sub animate-on-scroll" id="cd-date-display"></div>
+
+    <div class="cd-grid">
+      <div class="cd-box animate-on-scroll"><span class="cd-num" id="cd-d">00</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-box animate-on-scroll"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">Hours</span></div>
+      <div class="cd-box animate-on-scroll"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">Mins</span></div>
+      <div class="cd-box animate-on-scroll"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">Secs</span></div>
+    </div>
+    <div class="cd-msg animate-on-scroll" id="cd-msg"></div>
+    <div class="petal-strip-img petal-strip-bottom"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 6: THE CELEBRATION (HALDI + MEHENDI IMAGE CARDS)
+═══════════════════════════════════════ -->
+<section id="s-timeline" class="section">
+  <div class="celebration-rose-border" aria-hidden="true"></div>
+  <div class="celebration-inner">
+  <div class="inv-section-title animate-on-scroll">The Celebration</div>
+  <div class="inv-section-sub animate-on-scroll">Ceremony Events</div>
+
+  <div class="inv-cards-container">
+    
+    <!-- CARD 1: HALDI CEREMONY -->
+    <div class="inv-single-card-block animate-on-scroll">
+      <div class="ceremony-image-card">
+        <img id="haldi-card-img" src="Sangeet.png" alt="Haldi Ceremony Invitation Card">
+      </div>
+    <div class="inv-venue-bottom-card">
+        <div class="inv-venue-text" id="disp-haldi-venue">Venue: Amber Fort Residence, Jaipur</div>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="inv-maps-pill-btn" id="disp-haldi-mapbtn">
+          VIEW ON MAPS
+        </a>
+      </div>
+    </div>
+
+   <!-- <div class="rose-divider"><span class="rose-divider-icon">🦚</span></div>-->
+
+    <!-- CARD 2: Carnival CEREMONY (DIRECTLY BELOW HALDI) -->
+    <div class="inv-single-card-block animate-on-scroll">
+      <div class="ceremony-image-card">
+        <img id="carnival-card-img" src="Carnival.png" alt="Mehendi Ceremony Invitation Card">
+      </div>
+      <div class="inv-venue-bottom-card">
+        <div class="inv-venue-text" id="disp-mehendi-venue">Venue: Groom's Residence, Jodhpur</div>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="inv-maps-pill-btn mehendi-btn" id="disp-mehendi-mapbtn">
+          VIEW ON MAPS
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD 3: BARAT (DIRECTLY BELOW CARNIVAL) -->
+    <div class="inv-single-card-block animate-on-scroll">
+      <div class="ceremony-image-card">
+        <img id="barat-card-img" src="Barat.png" alt="Mehendi Ceremony Invitation Card">
+      </div>
+      <div class="inv-venue-bottom-card">
+        <div class="inv-venue-text" id="disp-mehendi-venue">Venue: Groom's Residence, Jodhpur</div>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="inv-maps-pill-btn mehendi-btn" id="disp-mehendi-mapbtn">
+          VIEW ON MAPS
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD 4: Varamala (DIRECTLY BELOW CARNIVAL) -->
+    <div class="inv-single-card-block animate-on-scroll">
+      <div class="ceremony-image-card">
+        <img id="varmala-card-img" src="Varmala.png" alt="Mehendi Ceremony Invitation Card">
+      </div>
+      <div class="inv-venue-bottom-card">
+        <div class="inv-venue-text" id="disp-mehendi-venue">Venue: Groom's Residence, Jodhpur</div>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="inv-maps-pill-btn mehendi-btn" id="disp-mehendi-mapbtn">
+          VIEW ON MAPS
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD 5: Phere (DIRECTLY BELOW CARNIVAL) -->
+    <div class="inv-single-card-block animate-on-scroll">
+      <div class="ceremony-image-card">
+        <img id="phere-card-img" src="Phere.png" alt="Mehendi Ceremony Invitation Card">
+      </div>
+      <div class="inv-venue-bottom-card">
+        <div class="inv-venue-text" id="disp-mehendi-venue">Venue: Groom's Residence, Jodhpur</div>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="inv-maps-pill-btn mehendi-btn" id="disp-mehendi-mapbtn">
+          VIEW ON MAPS
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD 6: Reception (DIRECTLY BELOW CARNIVAL) -->
+    <div class="inv-single-card-block animate-on-scroll">
+      <div class="ceremony-image-card">
+        <img id="reception-card-img" src="Reception.png" alt="Mehendi Ceremony Invitation Card">
+      </div>
+      <div class="inv-venue-bottom-card">
+        <div class="inv-venue-text" id="disp-mehendi-venue">Venue: Groom's Residence, Jodhpur</div>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="inv-maps-pill-btn mehendi-btn" id="disp-mehendi-mapbtn">
+          VIEW ON MAPS
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+ <!-- <div class="rose-divider" style="margin-top:40px"><span class="rose-divider-icon">🦚</span></div>-->
+  </div>
+  <div class="celebration-rose-border" aria-hidden="true"></div>
+</section>
+
+<!-- SECTION 4: CAROUSEL -->
+<section id="s-carousel" class="section">
+  <div style="padding:clamp(40px,8vw,64px) 0 clamp(32px,6vw,48px)">
+    <span class="carousel-label animate-on-scroll">Our Journey Together</span>
+    <div class="carousel-title animate-on-scroll">Moments & Memories</div>
+
+    <div class="carousel-track-wrap" id="carousel-wrap">
+      <div class="carousel-track" id="carousel-track"></div>
+    </div>
+
+    <div id="carousel-dots" style="display:flex;justify-content:center;gap:8px;margin-top:20px;padding:0 16px"></div>
+  </div>
+</section>
+
+<!-- SECTION 5: VENUE OVERVIEW -->
+<section id="s-venue" class="section">
+  <div class="petal-top" style="opacity:.5"></div>
+
+  <div style="padding-top:16px;position:relative;z-index:2">
+    <span class="sec-eyebrow animate-on-scroll">Join Us Here</span>
+    <div class="venue-title animate-on-scroll">The Venue</div>
+
+    <div class="venue-hero">
+      <img id="venue-image" src="" alt="Venue" loading="lazy">
+    </div>
+
+    <div class="venue-addr animate-on-scroll" id="venue-addr"></div>
+
+    <div class="map-wrap">
+      <iframe id="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="" title="Wedding Venue Map"></iframe>
+    </div>
+
+    <a class="map-btn animate-on-scroll" id="map-btn" href="https://maps.app.goo.gl/sKxfE8yvgvBajVwY8" target="_blank" rel="noopener">📍   Open in Google Maps</a>
+  </div>
+
+  <div class="petal-bottom" style="opacity:.5"></div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER WITH LOGO ABOVE AJAY
+═══════════════════════════════════════ -->
+<footer id="s-footer" class="section">
+  <div class="footer-bg"></div>
+
+  <div class="footer-inner">
+    <!-- Guaranteed Visible Transparent Logo directly above Ajay -->
+    <div class="footer-logo-wrap">
+      <img id="footer-logo-img" src="Ajay & Janvi Logo.png" alt="Ajay & Janvi Logo" class="footer-logo-img">
+    </div>
+
+    <div class="footer-names animate-on-scroll">
+      <span id="footer-bride"></span>
+      <span class="footer-amp">&</span>
+      <span id="footer-groom"></span>
+    </div>
+    <div class="footer-gold-line"></div>
+    <div class="footer-date animate-on-scroll" id="footer-date"></div>
+    <div class="footer-tagline animate-on-scroll" id="footer-tagline"></div><br>
+      <div><p class="copywrite"><a href="https://www.instagram.com/the_designaffair?psln=Y3JiOW1vNjAyMnlv">Designed By TheDesignAffair</a></p></div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- Background music: starts after the visitor's first interaction (browser autoplay policy) -->
+<audio id="wedding-background-music" preload="auto" loop playsinline>
+  <source src="Shubh aangan Aakanksha Sharma Vishwadeep Singh Shekhawat Keshav Kundal Kammy Rajput.mp3" type="audio/mpeg">
+</audio>
+<button id="music-toggle" class="music-toggle" type="button" aria-label="Play wedding music" aria-pressed="false" title="Play music">
+  <span id="music-toggle-icon" aria-hidden="true">♫</span>
+</button>
+
+
+<script src="script.js" defer></script>
+</body>
+</html>
